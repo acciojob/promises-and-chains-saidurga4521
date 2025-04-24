@@ -7,21 +7,22 @@ btnE1.addEventListener('click',()=>{
 		alert("Please enter valid details");
 		
 	}else{
-		function Validate(age){
+		function Validate(age,name){
 		return new Promise((resolve,reject)=>{
 			if(age>18){
 				setTimeout(()=>{
-					resolve("Welcome, . You can vote.");
+					resolve(`Welcome,${name} . You can vote.`);
 				},4000);
 			}else{
 				setTimeout(()=>{
-					reject("Oh sorry . You aren't old enough.");
+					reject(`Oh sorry ${name} . You aren't old enough.`);
 				},4000);
 			}
 		})
 	}
 	let age=AgeE1.value;
-	Validate(age).then((res)=>{
+	let name=nameE1.value;
+	Validate(age,name).then((res)=>{
 			alert(res);
 	}).catch((err)=>{
 		    alert(err);
